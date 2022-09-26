@@ -11,7 +11,7 @@ export type LoginPageProps = {
 const LoginPage: FC<LoginPageProps> = (props) => {
   const navigate = useNavigate()
   const handleLogin: LoginFormProps['onLogin'] = (values) => {
-    axios.post('http://localhost:80/auth/login', values).then(({ data }) => {
+    axios.post('http://localhost:81/auth/login', values).then(({ data }) => {
       props.onSuccess?.(data.token)
       navigate("/")
     })

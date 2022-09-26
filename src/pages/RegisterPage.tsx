@@ -6,7 +6,7 @@ import { RegisterFormProps } from '../components/RegisterForm/RegisterForm.types
 const RegisterPage = () => {
     
   const handleRegister: RegisterFormProps['onRegister'] = (values) => {
-    axios.post('http://localhost:80/auth/register',values)
+    axios.post('http://localhost:81/auth/register',values)
   }
 
   return <RegisterForm onRegister={handleRegister} />

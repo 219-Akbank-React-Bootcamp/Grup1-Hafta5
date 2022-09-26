@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
-import logo from './logo.svg'
 import './App.css'
-import LoginForm from './components/LoginForm'
-import RegisterForm from './components/RegisterForm'
-import { BrowserRouter, Route, Link, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import TodoApp from './pages/TodoApp'
+import  PasswordChange from './pages/PasswordChange';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
   const [token, setToken] = useState<string>('')
@@ -19,6 +17,7 @@ function App() {
     setToken('')
     setIsLoggedIn(false)
   }
+
   return (
     <div className="App">
       {!isLoggedIn ? (
@@ -36,6 +35,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<TodoApp onLogout={handleLogout} />} />
+            <Route path="/password-change" element={<PasswordChange token={token} />}  />
           </Routes>
         </BrowserRouter>
       )}
